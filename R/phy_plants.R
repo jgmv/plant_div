@@ -53,6 +53,7 @@ phy_plants <- function(sel = NULL, tree_tips = "both") {
   plants <- data.frame(species = species, guild = guild, row.names = abrv)
   plants$col <- plant_guild_col(plants$guild)
   if(!is.null(sel)) {
+    sel <- as.character(sel)
     plants <- plants[sel, ]
   }
   tree <- comecol::phylomatic_like(plants$species, dataset = "plants",
