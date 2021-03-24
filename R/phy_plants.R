@@ -7,9 +7,9 @@
 #' @keywords phylogeny
 #' @export
 #' @examples
-#' exp_plants()
-#' exp_plants(sel = c("LEU", "PLA", "ARR", "ANT"))
-exp_plants <- function(sel = NULL, tree_tips = "both") {
+#' phy_plants()
+#' phy_plants(sel = c("LEU", "PLA", "ARR", "ANT"))
+phy_plants <- function(sel = NULL, tree_tips = "both") {
   species <- c("Achillea millefolium",
     "Anthoxanthum odoratum",
     "Arrhenatherum elatius",
