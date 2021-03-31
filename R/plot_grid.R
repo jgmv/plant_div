@@ -1,6 +1,6 @@
 #' Plot Grid with Plants Layout for Neighbor Experiments
 #'
-#' Generates and plots with a grid representing the plant layout in the neighbor experiments, with selected number of plant per side.
+#' Plots a grid representing the plant layout in the neighbor experiments, with selected number of plant per side.
 #' @param n_side number of plants per side (rows or columns).
 #' @param pch type of point to plot   
 #' @return A plot with a plant grid.
