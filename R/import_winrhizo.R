@@ -23,5 +23,6 @@ import_winrhizo <- function(file, classes = F, skip = 5) {
   data <- data[-(1:skip), ]
   rownames(data) <- gsub(".tif$", "", data[, "RHIZO.2015a"])
   data <- data[, -which(colnames(data) == "RHIZO.2015a")]
+  for(i in colnames(data)) data[, i] <- as.numeric(levels(data[, i]))[data[, i]]
   return(data)
 }  
