@@ -8,11 +8,10 @@
 #' @export
 plot_symptoms <- function(data, plant, ind_val = F) {
   require(ggplot2)
-  inoc_date <- min(as.Date(data$date))
-  data$dpi <- abs(inoc_date - as.Date(data$date))
-
   x <- droplevels(data[data$species == plant, ])
   x <- na.omit(x)
+  inoc_date <- min(as.Date(x$date))
+  x$dpi <- abs(inoc_date - as.Date(x$date))
   x$treat <- paste(x$fungus, x$plant, sep = "_")
   x.mean <- as.table(tapply(x$symptoms, list(x$fungus, x$dpi), FUN = mean))
   x.mean <- as.data.frame(x.mean)
