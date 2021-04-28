@@ -10,8 +10,10 @@ plot_survival <- function(data, plant) {
   inoc_date <- min(as.Date(data$date))
   data$dpi <- abs(inoc_date - as.Date(data$date))
   x <- droplevels(data[data$species == plant, ])
+  x <- na.omit(x)
   x[x$symptoms > 0, "symptoms"] <- 1
   fit <- survival::survfit(Surv(dpi, symptoms) ~ fungus, data = x)
   survminer::ggsurvplot(fit, data = x, conf.int = T, main = plant,
-    legend = "right", legend.labs = unique(x$fungus))
+    legend = "right", legend.labs = unique(x$fungus), xlab = "dpi",
+    ylab = "survival prob.")
 }
