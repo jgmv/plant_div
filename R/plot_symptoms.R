@@ -22,6 +22,7 @@ plot_symptoms <- function(data, plant, ind_val = F) {
   x.mean$sd <- x.sd$symptoms
   x.mean$sd_min <- x.mean$symptoms - x.mean$sd
   x.mean$sd_max <- x.mean$symptoms + x.mean$sd
+  x.mean$sd_max[x.mean$sd_max > 4] <- 4
   x.mean$sd_min[x.mean$sd_min < 0] <- 0
 
   if(ind_val) {
