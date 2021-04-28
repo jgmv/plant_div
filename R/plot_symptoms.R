@@ -12,6 +12,7 @@ plot_symptoms <- function(data, plant, ind_val = F) {
   data$dpi <- abs(inoc_date - as.Date(data$date))
 
   x <- droplevels(data[data$species == plant, ])
+  x <- na.omit(x)
   x$treat <- paste(x$fungus, x$plant, sep = "_")
   x.mean <- as.table(tapply(x$symptoms, list(x$fungus, x$dpi), FUN = mean))
   x.mean <- as.data.frame(x.mean)
