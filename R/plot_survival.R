@@ -7,10 +7,10 @@
 #' @export
 plot_survival <- function(data, plant) {
   require(ggplot2)
-  inoc_date <- min(as.Date(data$date))
-  data$dpi <- abs(inoc_date - as.Date(data$date))
   x <- droplevels(data[data$species == plant, ])
   x <- na.omit(x)
+  inoc_date <- min(as.Date(x$date))
+  x$dpi <- abs(inoc_date - as.Date(x$date))
   x[x$symptoms > 0, "symptoms"] <- 1
   fit <- survival::survfit(survival::Surv(dpi, symptoms) ~ fungus, data = x)
   survminer::ggsurvplot(fit, data = x, conf.int = T, main = plant,
