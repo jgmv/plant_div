@@ -11,8 +11,10 @@
 #' phy_plants(sel = c("LEU", "PLA", "ARR", "ANT"))
 phy_plants <- function(sel = NULL, tree_tips = "both") {
   species <- c("Achillea millefolium",
+    "Agrostis stolonifera",
     "Anthoxanthum odoratum",
     "Arrhenatherum elatius",
+    "Briza media",
     "Centaurea jacea",
     "Festuca pratensis",
     "Festuca rubra",
@@ -21,11 +23,16 @@ phy_plants <- function(sel = NULL, tree_tips = "both") {
     "Leontodon hispidus",
     "Leucanthemum vulgare",
     "Plantago lanceolata",
+    "Phleum pratense",
     "Prunella vulgaris",
-    "Sanguisorba officinalis")
+    "Ranunculus repens",
+    "Sanguisorba officinalis",
+    "Trisetum flavescens")
   abrv <- c("ACH",
+    "AGR",
     "ANT",
     "ARR",
+    "BRI",
     "CEN",
     "FPR",
     "FRU",
@@ -34,22 +41,29 @@ phy_plants <- function(sel = NULL, tree_tips = "both") {
     "LEO",
     "LEU",
     "PLA",
+    "PHL",
     "PRU",
-    "SAN")
+    "RAN",
+    "SAN",
+    "TRI")
   guild <- c("forb",
     "grass",
     "grass",
-    "forb",
     "grass",
     "grass",
     "forb",
     "grass",
+    "grass",
+    "forb",
+    "grass",
     "forb",
     "forb",
     "forb",
+    "grass",
     "forb",
-    "forb"
-  )
+    "forb",
+    "forb",
+    "grass")
   plants <- data.frame(species = species, guild = guild, row.names = abrv)
   plants$col <- plant_guild_col(plants$guild)
   if(!is.null(sel)) {
