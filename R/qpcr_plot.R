@@ -3,7 +3,8 @@
 #' Plots amplification curves from qPCR raw data files
 #' @param data object witht he raw data file.
 #' @param treat data frame with sample description, including columns 'Content', 'Sample', and 'col'.
-#' @param fixed_col whether to use fixed colors for standard, unknown, and NTC samples.   
+#' @param fixed_col whether to use fixed colors for standard, unknown, and NTC samples.
+#' @param ... arguments to be passed to plot.   
 #' @return A plot with qPCR amplification curves.
 #' @keywords qPCR
 #' @export
