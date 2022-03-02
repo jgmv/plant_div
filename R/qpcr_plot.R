@@ -9,10 +9,10 @@
 #' @export
 #' @examples
 #' qpcr_plot()
-qpcr_plot <- function(data, treat, fixed_col = F) {
+qpcr_plot <- function(data, treat, fixed_col = F, ...) {
   plot_par()
   plot(0, 0, type = "n", xlim = c(0, nrow(reads)), ylim = c(0, max(data)),
-    xlab = "Cycle", ylab = "Fluorescence")
+    xlab = "Cycle", ylab = "Fluorescence", ...)
   grid()
   
   if(fixed_col) {
