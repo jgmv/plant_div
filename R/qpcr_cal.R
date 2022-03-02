@@ -2,16 +2,17 @@
 #'
 #' Plots calibration curves for qPCR data, calculates amplification efficiency, and quantifies unknown samples based on standards.
 #' @param sample name of samples in column 'Sample' of 'treat' to use as standards.
-#' @param treat data frame with sample description.   
+#' @param treat data frame with sample description.
+#' @param ... arguments to be passed to plot.   
 #' @return A phylogenetic tree in APE format.
 #' @keywords phylogeny
 #' @export
 #' @examples
 #' qpcr_cal()
-qpcr_cal <- function(sample, data) { 
+qpcr_cal <- function(sample, data, ...) { 
   plot_par(xaxs = "r", yaxs = "r")
   x <- data[data$Sample == sample, ]
-  plot(x$Cq ~ log10(x$SQ), xlab = "log10(ng DNA)", ylab = "Cq")
+  plot(x$Cq ~ log10(x$SQ), xlab = "log10(ng DNA)", ylab = "Cq", ...)
   mod <- lm(x$Cq ~ log10(x$SQ))
   mods <- summary(mod)
   cd <- round(mods$adj.r.squared, 2)
